@@ -1,0 +1,499 @@
+%% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\usepackage{courier}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=0.8in,bmargin=0.8in,lmargin=1in,rmargin=1in,headheight=0cm,headsep=0cm}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{array}
+\usepackage[unicode=true]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{\texorpdfstring%
+  {L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+	{\par\begin{list}{}{
+		\setlength{\rightmargin}{\leftmargin}
+		\setlength{\listparindent}{0pt}% needed for AMS classes
+		\raggedright
+		\setlength{\itemsep}{0pt}
+		\setlength{\parsep}{0pt}
+		\normalfont\ttfamily}%
+	 \item[]}
+	{\end{list}}
+
+\makeatother
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+\begin{center}
+{\Large{}CSCE 221 Cover Page\smallskip{}
+}{\Large\par}
+\par\end{center}
+
+\begin{center}
+{\large{}Vishal~~~~~~~~~~~~~~~~~~Suresh ~~~~~~~~~~~~~~~~~~~~~532004218~~~~~~~~~~~~~~\bigskip{}
+}{\large\par}
+\par\end{center}
+
+\begin{center}
+{\large{}suresh06192004 ~~~~~~~~~~~~~~~~~~~suresh06192004@tamu.edu~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\medskip{}
+\par\end{center}
+\begin{quotation}
+Please list all sources in the table below including web pages which
+you used to solve or implement the current homework. If you fail to
+cite sources you can get a lower number of points or even zero, read
+more: \href{http://aggiehonor.tamu.edu/}{Aggie Honor System Office}
+\medskip{}
+\medskip{}
+\end{quotation}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Type of sources  & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\tabularnewline
+ &  &  & \tabularnewline
+ &  &  & \tabularnewline
+\hline 
+\hline 
+People &  &  & \tabularnewline
+ &  &  & \tabularnewline
+ &  &  & \tabularnewline
+\hline 
+Web pages (provide URL)  &  &  & \tabularnewline
+ &https://slaystudy.com/binary-search-real-life-examples/  &  & \tabularnewline
+ &  &  & \tabularnewline
+\hline 
+Printed material &  &  & \tabularnewline
+ &  &  & \tabularnewline
+ &  &  & \tabularnewline
+\hline 
+Other Sources  &  &  & \tabularnewline
+ &  &  & \tabularnewline
+ &  &  & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\medskip{}
+
+\begin{quotation}
+I certify that I have listed all the sources that I used to develop
+the solutions/codes to the submitted work.
+
+\textquotedblleft \emph{On my honor as an Aggie, I have neither given
+nor received any unauthorized help on this academic work.}\textquotedblright{} 
+\end{quotation}
+\vspace{0.5cm}
+
+\begin{tabular}{cccccc}
+Vishal Suresh  & ~~~~~~~~~~~~~~~~~~~~~~~~~~~ &  & ~~~~~~~~~~~~~~~~~~~~~ & 06/18/2023  & ~~~~~~~~~~~~~~~~~~~~\tabularnewline
+\end{tabular}\vfill{}
+
+\pagebreak{}
+\begin{center}
+\textbf{\Large{}Homework 1}{\Large\par}
+\par\end{center}
+
+\begin{center}
+\textbf{\large{}Check the Canvas calendar for the deadliness. }\\
+\textbf{\large{}The homework submission to Gradescope only.}{\large\par}
+\par\end{center}
+\begin{quote}
+\textbf{Typeset your solutions to the homework problems listed below
+using \LaTeX{} (or \LyX ). See the class webpage for information about
+their installation and tutorials.}
+\end{quote}
+\noindent \begin{flushleft}
+\textbf{Homework 1 Objectives:}
+\par\end{flushleft}
+\begin{enumerate}
+\item Developing the C++ programming skills by using
+\begin{enumerate}
+\item templated dynamic arrays and STL vectors
+\item tests for checking correctness of a program.
+\end{enumerate}
+\item Comparing theory with a computation experiment in order to classify
+algorithm.
+\item Preparing reports/documents using the professional software \LaTeX{}
+or \LyX .
+\item Understanding the definition of the big-O asymptotic notation.
+\item Classifying algorithms based on pseudocode.
+\end{enumerate}
+\noindent \begin{flushleft}
+\rule[0.5ex]{1\columnwidth}{1pt}
+\par\end{flushleft}
+\begin{enumerate}
+\item (25 points) Include your C++ code in the problem solution\textemdash \textbf{do
+not use attachments or screenshots.}
+\begin{itemize}
+\item (10 points) Use the STL class \texttt{vector<int>} to write two C++
+functions that return true if there exist \textbf{two} elements of
+the vector such that their \textbf{product} is divisible by 12, and
+return false otherwise. The efficiency of the first function should
+be $O(n)$ and the efficiency of second one should be $O(n^{2})$
+where $n$ is the size of the vector.
+
+\subitem \textbf{O($n^2$)}:
+\subitem ~~~~~bool On2(vector<int> v) \{
+\subitem ~~~~~~~~~for (int i = 0;i < v.size();++i) 
+\subitem ~~~~~~~~~~~~~for (int j = i+1;j < v.size();++j) 
+\subitem ~~~~~~~~~~~~~~~~~if (v[i] * v[j] \% 12 == 0)
+\subitem ~~~~~~~~~~~~~~~~~~~~~return true;
+\subitem ~~~~~~~~~~return false;
+\subitem ~~~~~ \} \newline
+
+\subitem \textbf{O($n$)}:
+\subitem ~~~~~bool On1(vector<int> v) \{
+\subitem ~~~~~~~~~std::unordered-set<int> nums; 
+\subitem ~~~~~~~~~bool hasNonZero = false;
+\subitem ~~~~~~~~~bool has12Num = false; \newline
+\subitem ~~~~~~~~~for (int num : v) \{
+\subitem ~~~~~~~~~~~~~if (num\%12 == 0)
+\subitem ~~~~~~~~~~~~~~~~~has12Num = true;
+\subitem ~~~~~~~~~~~~~else if (num != 0)
+\subitem ~~~~~~~~~~~~~~~~~hasNonZero = true;\newline
+\subitem ~~~~~~~~~~~~~if (hasNonZero \&\& has12Num)
+\subitem ~~~~~~~~~~~~~~~~~return true;\newline
+\subitem ~~~~~~~~~~~~~if (num \% 3 == 0) \{
+\subitem ~~~~~~~~~~~~~~~~~if (nums.find(num / 3) != nums.end())
+\subitem ~~~~~~~~~~~~~~~~~~~~~return true;
+\subitem ~~~~~~~~~~~~~~~~~if (nums.find(num / 4) != nums.end()) 
+\subitem ~~~~~~~~~~~~~~~~~~~~~return true;
+\subitem ~~~~~~~~~~~~~~~~~\}
+\subitem ~~~~~~~~~~~~~~~~~~nums.insert(num)
+\subitem \} \newline
+
+\item (6 points) Justify your answer by writing the running time functions
+in terms of $n$ for both the algorithms and their classification
+in terms of big-O asymptotic notation. 
+
+\subitem \textbf{O(n):}
+\subitem The runtime of the function is O(n) because there is one loop in the function that accounts for most of the assignments and operations.
+
+\subitem \textbf{O($n^2$):}
+\subitem The runtime of the function is O($n^2$) as there are two nested loops which take up most of the operations and assignments. \newline
+
+\item (2 points) What do you consider as an operation for each algorithm? 
+\subitem An operation for each algorithim would either be to change its value or create a new variable. this makes sense as the loop itself does not increase runtime but rather the operations done within the loop as these take some amount of time and resources.\newline
+
+\item (2 points) Are the best and worst cases for both the algorithms the
+same in terms of big-O notation? Justify your answer. 
+\subitem The best case case for both algorithms would be O(1) as if the first two elements have a product that would be divisible by 12. The worst case would be O(n) and O($n^2$) for their respective algorithms as this would mean that the elements that would be divisible by 12 are at the end of the array.
+
+\item (5 points) Describe the situations of getting the best and worst cases,
+give the samples of the input for each case, and check if your running
+time functions match the number of operations. 
+\subitem \textbf{O($n^2$)}:
+\subitem Best Case: If the first and second elements in the array happen to be 3 and 4 then the if statement in the nested for loop would be true as (3 * 4 \% 12) does equal 0 making the function return true;
+\subitem Worst Case: If the entire array was filled with 0's or some other numbers that do not happen to multiply out to a multiple of 12, and the last two element's product happens to be divisible by 12, then the array would have not iterate through $n^2$ times before finding those last two elements. For example vector<int> v {0,0,1,5,1,4,2,6}.
+\subitem \textbf{O($n$)}:
+\subitem Best Case: If the first two elements happened to be 12 and any other number the loop would only have to run twice before returning true as 12 times any number is a multiple of 12.
+\subitem Worst Case: If the last element was a multiple of 3 and and did not appear in the end of an array, then the loop would have to go through the entire array to return true;
+
+\vfill{}
+\end{itemize}
+\newpage{}
+\item (50 points) The binary search algorithm problem.
+\begin{enumerate}
+\item (5 points) Implement a templated C++ function for the binary search
+algorithm based on the set of the lecture slides\textit{ ``Analysis
+of Algorithms''}.
+
+{\small{}}
+\begin{lstlisting}[language={C++},basicstyle={\small\ttfamily},showstringspaces=false]
+int Binary_Search(vector<int> &v, int x) {
+   int mid, low = 0;     
+   int high = (int) v.size()-1;     
+   while (low < high) {         
+      mid = (low+high)/2;                 
+      if (num_comp++, v[mid] < x) low = mid+1;         
+      else high = mid;     
+   }     
+   if (num_comp++, x == v[low]) return low; //OK: found          
+   return -1; //not found
+} 
+\end{lstlisting}
+{\small\par}
+
+Be sure that before calling \texttt{Binary\_Search}, elements of the
+vector \texttt{v} are arranged in \textbf{ascending} order. The function
+should also keep track of the number of comparisons used to find the
+target \texttt{x}. The (global) variable \texttt{num\_comp} keeps
+the number of comparisons and initially should be set to zero.\medskip{}
+
+\item (6 points) Test your algorithm for correctness using a vector of data
+with 16 elements sorted in ascending order. An error message should
+be printed or exception should be thrown when the input vector is
+unsorted.\\
+What is the value of \texttt{num\_comp} in the cases when 
+\begin{enumerate}
+\item the target \texttt{x} is the first element of the vector \texttt{v}
+\subitem 5
+\item the target \texttt{x} is the last element of the vector \texttt{v}
+\subitem 5
+\item the target \texttt{x} is in the middle of the vector \texttt{v}
+\subitem 5
+\end{enumerate}
+What is your conclusion from the testing for $n=16$?\medskip{}
+\subitem The program will always make 5 comparisons before getting a result\newline
+
+\item (6 points) Test your program using vectors of size $n=2^{k}$ where
+$k=0,\,1,2,\dots,11$ populated with consecutive increasing integers
+in these ranges: $1,\,2,\,4,\,8,\,16,\,32,\,64,\,128,\,256,\,512,\,1024,\,2048$.
+Select the target as the last element in the vector. Record the value
+of \texttt{num\_comp} for each vector size in the table below. 
+
+\textbf{}%
+\begin{tabular}{|>{\centering}p{2cm}|c|c|}
+\hline 
+Range {[}1,$n${]} & \multicolumn{1}{>{\centering}p{2cm}|}{Target } & \multicolumn{1}{>{\centering}p{2cm}|}{num\_comp}\tabularnewline
+\hline 
+\hline 
+{[}1, 1{]} & 1 & 1\tabularnewline
+\hline 
+{[}1, 2{]} & 2 & 2\tabularnewline
+\hline 
+{[}1, 4{]} & 4 & 3\tabularnewline
+\hline 
+{[}1, 8{]} & 8 & 4\tabularnewline
+\hline 
+{[}1, 16{]} & 16 & 5\tabularnewline
+\hline 
+{[}1, 32{]} & 32 & 6\tabularnewline
+\hline 
+{[}1, 64{]} & 64 & 7\tabularnewline
+\hline 
+{[}1, 128{]} & 128 & 8\tabularnewline
+\hline 
+{[}1, 256{]} & 256 & 9\tabularnewline
+\hline 
+{[}1, 512{]} & 512 & 10\tabularnewline
+\hline 
+{[}1, 1024{]} & 1024 & 11\tabularnewline
+\hline 
+{[}1, 2048{]} & 2048 & 12\tabularnewline
+\hline 
+\end{tabular}
+\item (4 points) Plot the number of comparisons for the vector size $n=2^{k}$,
+$k=0,1,2,\dots,11$. You can use a spreadsheet or any graphical package.
+\medskip{}
+\item (5 points) Provide a mathematical formula/function which takes $n$
+as an argument, where $n$ is the vector size, and returns as its
+value the number of comparisons. Does your formula match the computed
+output for any input? Justify your answer.\medskip{}
+\subitem num\_comp$  =  log_2 (n)-1 $. Since we know that the number of elements is equal to 2 to the power of k where k is the number of comparisons minus 1. We can just take the log of both sides and solve for the number of comparisons.
+\item (5 points) How can you modify your formula/function if the largest
+number in a vector is not the exact power of two? Test your program
+using input in ranges from $1$ to $n=2^{k}-1$, $k=0,1,2,\dots,11$
+and plot the number of comparisons vs. the size of the vector.
+
+\textbf{}%
+\begin{tabular}{|c|c|c|}
+\hline 
+\multicolumn{1}{|c|}{Range {[}1,$n${]}} & \multicolumn{1}{>{\centering}p{2cm}|}{Target } & \multicolumn{1}{>{\centering}p{2cm}|}{num\_comp }\tabularnewline
+\hline 
+\hline 
+{[}1, 1{]} & 1 & 1\tabularnewline
+\hline 
+{[}1, 3{]} & 3 & 2\tabularnewline
+\hline 
+{[}1, 7{]} & 7 & 3\tabularnewline
+\hline 
+{[}1, 15{]} & 15 & 4\tabularnewline
+\hline 
+{[}1, 31{]} & 31 & 5\tabularnewline
+\hline 
+{[}1, 63{]} & 63 & 6\tabularnewline
+\hline 
+{[}1, 127{]} & 127 & 7\tabularnewline
+\hline 
+{[}1, 255{]} & 255 & 8\tabularnewline
+\hline 
+{[}1, 511{]} & 511 & 9\tabularnewline
+\hline 
+{[}1, 1023{]} & 1023 & 10\tabularnewline
+\hline 
+{[}1, 2047{]} & 2047 & 11\tabularnewline
+\hline 
+\end{tabular}
+\item (5 points) Do you think the number of comparisons in the experiment
+above are the same for a vector of strings or a vector of doubles?
+Justify your answer.\medskip{}
+\subitem I think when comparing a string more comparison will occur because they are essentially an array of character so when comparing an entire string,
+each of the individual character will have to be compared leading to more comparisons. However I think when comparing a doubles the amount on comparisons will stay the same as a double is its own type and not made up of smaller types like a string.
+\item (4 points) Use the big-O asymptotic notation to classify binary search
+algorithm and justify your answer.\medskip{}
+\subitem The runtime of a binary search algorithm is O(log$n$). This is because every time a comparison is made, the number of elements that need to be search
+is divided by two. Therefore with every iteration of the loop, the size exponentially gets smaller.
+\item (10 points bonus) Read the sections 1.6.3 and 1.6.4 from the textbook
+and modify the algorithm using a functional object to compare vector
+elements. How can you modify the binary search algorithm to handle
+the vector of descending elements? What will be the value of \texttt{num\_comp}?
+Repeat the search experiment for the smallest number in the integer
+arrays. Tabulate the results and write a conclusion of the experiment
+with your justification. \medskip{}
+\item (10 points) Write about two real life applications of this algorithm.
+Justify your answer.\medskip{}
+\subitem The first application of a binary search is for a library. A library contains
+thousands of books so it would be inefficient to search for it using a linear fashion.
+Library books are generally sorted alphabetically or using some integer code. Using that allows
+books to be sorted effectively. The second application is a online dictionary. These dictionaries typically involve thousands of words, and since these words can be stored
+alphabetically, they can also use the binary search algorithm. Both of these examples can use the order of the alphabet to check which letter is "greater" than the other
+in a similar way you could compare the size of two numbers.
+
+\newpage{}
+\end{enumerate}
+\item (25 points) Find running time functions for the algorithms below and
+write their classification using big-O asymptotic notation in terms
+of $n$. A running time function should provide a formula on the number
+of arithmetic operations and assignments performed on the variables
+$s$, $t$, or $c$. Note that array indices start from $0$.
+\begin{lyxcode}
+\textbf{\textcolor{blue}{\small{}Algorithm~Ex1(A):}}{\small\par}
+
+\textbf{\small{}~~Input}{\small{}:~An~array~A~storing~$n\geq1$~integers.}{\small\par}
+
+\textbf{\small{}~~Output}{\small{}:~The~sum~of~the~elements~in~A.}{\small\par}
+
+{\small{}$s\leftarrow A[0]$}{\small\par}
+
+\textbf{\small{}for}{\small{}~$i\leftarrow1$~to~$n-1$~}\textbf{\small{}do}{\small\par}
+
+{\small{}~~~$s\leftarrow s+A[i]$}{\small\par}
+
+\textbf{\small{}end~for}{\small\par}
+
+\textbf{\small{}return}{\small{}~$s$} \newline
+
+\item The total operations: f(n) = 1 + (n-1)*2 $\rightarrow$  Big O is \textcolor{red}{O(n)}
+
+\vfill{}
+
+\textbf{\textcolor{blue}{\small{}Algorithm~Ex2(A):}}{\small\par}
+
+\textbf{\small{}~~Input}{\small{}:~An~array~A~storing~$n\geq1$~integers.}{\small\par}
+
+\textbf{\small{}~~Output}{\small{}:~The~sum~of~the~elements~at~even~positions~in~A.}{\small\par}
+
+{\small{}$s\leftarrow A[0]$}{\small\par}
+
+\textbf{\small{}for}{\small{}~$i\leftarrow2$~}\textbf{\small{}to}{\small{}~$n-1$~}\textbf{\small{}by~}{\small{}increments~of~2}\textbf{\small{}~do}{\small\par}
+
+{\small{}~~$s\leftarrow s+A[i]$}{\small\par}
+
+\textbf{\small{}end~for}{\small\par}
+
+\textbf{\small{}return}{\small{}~$s$} \newline
+
+\item The total operations: f(n) = 1 + (n/2)*2 $\rightarrow$  Big O is \textcolor{red}{O(n)}
+
+\vfill{}
+
+\textbf{\textcolor{blue}{\small{}Algorithm~Ex3(A):}}{\small\par}
+
+{\small{}~~~}\textbf{\small{}Input}{\small{}:~An~array~A~storing~$n\geq1$~integers.}{\small\par}
+
+\textbf{\small{}~~~Output}{\small{}:~The~sum~of~the~partial~sums~in~A.}{\small\par}
+
+{\small{}$s\leftarrow0$}{\small\par}
+
+\textbf{\small{}for}{\small{}~$i\leftarrow0$~~}\textbf{\small{}to}{\small{}~$n-1$~}\textbf{\small{}do}{\small\par}
+
+{\small{}~~~$s\leftarrow s+A[0]$}{\small\par}
+
+\textbf{\small{}~~~for}{\small{}~$j\leftarrow1$~}\textbf{\small{}to}{\small{}~$i$~}\textbf{\small{}do}{\small\par}
+
+{\small{}~~~~~$s\leftarrow s+A[j]$}{\small\par}
+
+{\small{}~~~}\textbf{\small{}end~for}{\small\par}
+
+\textbf{\small{}end~for}{\small\par}
+
+\textbf{\small{}return}{\small{}~$s$}
+
+\item The total operations: f(n) = 1 + 2n + n*(n/2) $\rightarrow$  Big O is \textcolor{red}{O($n^2$)}
+
+\vfill{}
+\pagebreak{}
+
+\textbf{\textcolor{blue}{\small{}Algorithm~Ex4(A):}}{\small\par}
+
+{\small{}~~~}\textbf{\small{}Input}{\small{}:~An~array~A~storing~$n\geq1$~integers.}{\small\par}
+
+\textbf{\small{}~~~Output}{\small{}:~The~sum~of~the~partial~sums~in~A.}{\small\par}
+
+{\small{}$t\leftarrow A[0]$}{\small\par}
+
+{\small{}$s\leftarrow A[0]$}{\small\par}
+
+\textbf{\small{}for}{\small{}~$i\leftarrow1$~}\textbf{\small{}to}{\small{}~$n-1$~}\textbf{\small{}do}{\small{}~}{\small\par}
+
+{\small{}~~~$s\leftarrow s+A[i]$}{\small\par}
+
+{\small{}~~~$t\leftarrow t+s$}{\small\par}
+
+\textbf{\small{}end~for}{\small\par}
+
+\textbf{\small{}return}{\small{}~$t$}
+
+\item The total operations: f(n) = 2 + 4(n-1) $\rightarrow$  Big O is \textcolor{red}{O($n$)}
+
+\vfill{}
+
+\textbf{\textcolor{blue}{\small{}Algorithm~Ex5(A,~B):}}{\small\par}
+
+{\small{}~~~}\textbf{\small{}Input}{\small{}:~Arrays~A~and~B~storing~$n\geq1$~integers.}{\small\par}
+
+\textbf{\small{}~~~Output}{\small{}:~The~number~of~elements~in~B~equal~to~the~partial~sums~in~A.}{\small\par}
+
+{\small{}$c\leftarrow0$~//counter}{\small\par}
+
+\textbf{\small{}for}{\small{}~$i\leftarrow0$~}\textbf{\small{}to}{\small{}~$n-1$~}\textbf{\small{}do}{\small{}~}{\small\par}
+
+{\small{}~~~$s\leftarrow0$~//}\emph{\small{}partial~sum}{\small\par}
+
+\textbf{\small{}~~~for}{\small{}~$j\leftarrow0$~}\textbf{\small{}to}{\small{}~$n-1$~}\textbf{\small{}do}{\small\par}
+
+{\small{}~~~~~~$s\leftarrow s+A[0]$}{\small\par}
+
+\textbf{\small{}~~~~~~for}{\small{}~$k\leftarrow1$~}\textbf{\small{}to}{\small{}~$j$~}\textbf{\small{}do}{\small\par}
+
+{\small{}~~~~~~~~~$s\leftarrow s+A[k]$}{\small\par}
+
+{\small{}~~~~~~}\textbf{\small{}end~for}{\small\par}
+
+{\small{}~~~}\textbf{\small{}end~for}{\small\par}
+
+{\small{}~~~}\textbf{\small{}if}{\small{}~$B[i]=s$~}\textbf{\small{}then}{\small\par}
+
+{\small{}~~~~~~$c\leftarrow c+1$}{\small\par}
+
+{\small{}~~~}\textbf{\small{}end~if}{\small\par}
+
+\textbf{\small{}end~for}{\small\par}
+
+\textbf{\small{}return}{\small{}~$c$}
+
+\item The total operations: f(n) = 1 + n * n(1 + 2(n-1)) $\rightarrow$  Big O is \textcolor{red}{O($n^3$)}
+
+\vfill{}
+
+\end{lyxcode}
+\end{enumerate}
+
+\end{document}
